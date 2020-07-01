@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./HomePage.styles.scss";
+import "./GamePage.styles.scss";
 import axios from "axios";
-
+import { motion } from "framer-motion";
+import { pageTransition } from "../../utils/transitions";
 import { useQuery } from "react-query";
+import { fetchData } from "../../utils/gameFunctions";
 
 const HomePage = () => {
     const [word, setWord] = useState("");
@@ -18,7 +20,7 @@ const HomePage = () => {
         "Start typing to start the game..."
     );
     const [timer, setTimer] = useState([0, 0, 0, 60000]);
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
 
     function leadingZero(time) {
         if (time <= 9) {
@@ -85,13 +87,7 @@ const HomePage = () => {
         timerRunning ? 10 : null
     );
 
-    const fetchData = async () => {
-        const response = await fetch(
-            "https://random-word-api.herokuapp.com/word?number=1000"
-        );
-        const data = await response.json();
-        return data;
-    };
+    //useQuery
 
     const { status, data, error } = useQuery("latest", fetchData);
 
@@ -171,7 +167,13 @@ const HomePage = () => {
     };
 
     return (
-        <div className="Homepage-wrapper">
+        <motion.div
+            className="Homepage-wrapper"
+            exit="out"
+            animate="in"
+            initial="out"
+            variants={pageTransition}
+        >
             {showModal ? (
                 <div className="gameover-modal">
                     <div className="modal-content-container">
@@ -183,7 +185,7 @@ const HomePage = () => {
                     </div>
                 </div>
             ) : null}
-            <h1 className="game-title">Speed-Typer</h1>
+            <h2 className="game-title">Speed-Typer</h2>
             <div className="game-container">
                 <div className="text-to-type">
                     <h3>Text to type:</h3>
@@ -219,7 +221,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

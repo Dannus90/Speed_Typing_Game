@@ -51,7 +51,7 @@
                 font-weight: bold;
                 font-size: 1.2rem;
                 letter-spacing: 0.2rem;
-
+                //CHECK THIS!
                 border: 1px solid #544a4a;
             }
         }
@@ -78,6 +78,7 @@
         justify-content: center;
         align-items: center;
         width: 60%;
+        max-width: 47.5rem;
         border-radius: 2rem;
         margin-bottom: 5rem;
         -webkit-box-shadow: -2px 0px 4px -6px rgba(255, 255, 255, 1);
