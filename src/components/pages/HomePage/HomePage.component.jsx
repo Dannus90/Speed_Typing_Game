@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./HomePage.styles.scss";
 import axios from "axios";
-import { ReactQueryDevtools } from "react-query-devtools";
+
 import { useQuery } from "react-query";
 
 const HomePage = () => {
@@ -18,7 +18,7 @@ const HomePage = () => {
         "Start typing to start the game..."
     );
     const [timer, setTimer] = useState([0, 0, 0, 60000]);
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(true);
 
     function leadingZero(time) {
         if (time <= 9) {
@@ -107,6 +107,7 @@ const HomePage = () => {
             setWord(randomWord);
             setNumberOfGeneratedWords(numberOfGeneratedWords + 1);
         })();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // StartTimer
@@ -196,14 +197,16 @@ const HomePage = () => {
                         <p>{word}</p>
                     )}
                 </div>
-                <input
-                    type="text"
-                    className="text-area-input"
-                    placeholder={placeholder}
-                    value={input}
-                    onChange={inputHandler}
-                    style={{ border: borderStyle }}
-                />
+                <div className="input-container">
+                    <input
+                        type="text"
+                        className="text-area-input"
+                        placeholder={placeholder}
+                        value={input}
+                        onChange={inputHandler}
+                        style={{ border: borderStyle }}
+                    />
+                </div>
                 <div className="timer-button-container">
                     <div className="timer">
                         <p>{timerElement}</p>
@@ -211,10 +214,10 @@ const HomePage = () => {
                     <button className="start-button" onClick={resetGame}>
                         Reset Game
                     </button>
+                    <div className="score-display">
+                        <p>Score: {score}</p>
+                    </div>
                 </div>
-            </div>
-            <div className="score-display">
-                <p>Score: {score}</p>
             </div>
         </div>
     );
