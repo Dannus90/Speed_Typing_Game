@@ -1,4 +1,4 @@
-.Homepage-wrapper {
+.gamepage-wrapper {
     height: 100vh;
     background: radial-gradient(
         circle,
@@ -173,7 +173,7 @@
 }
 
 @media only screen and (max-width: 71.875rem) {
-    .Homepage-wrapper {
+    .gamepage-wrapper {
         .gameover-modal {
             .modal-content-container {
                 h2 {
@@ -239,7 +239,7 @@
 }
 
 @media only screen and (max-width: 56.25rem) {
-    .Homepage-wrapper {
+    .gamepage-wrapper {
         .gameover-modal {
             .modal-content-container {
                 h2 {
@@ -304,7 +304,7 @@
 }
 
 @media only screen and (max-width: 47.5rem) {
-    .Homepage-wrapper {
+    .gamepage-wrapper {
         .game-container {
             width: 70%;
         }
@@ -312,7 +312,7 @@
 }
 
 @media only screen and (max-width: 42.5rem) {
-    .Homepage-wrapper {
+    .gamepage-wrapper {
         .game-container {
             width: 80%;
         }
@@ -320,7 +320,7 @@
 }
 
 @media only screen and (max-width: 37.5rem) {
-    .Homepage-wrapper {
+    .gamepage-wrapper {
         .game-container {
             width: 90%;
         }

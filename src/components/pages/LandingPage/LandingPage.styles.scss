@@ -12,7 +12,9 @@
 
     .game-information-container {
         background-color: rgba(0, 0, 0, 0.5);
+        text-align: center;
         padding: 2rem 4rem;
+        margin: 0rem 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -48,6 +50,36 @@
 
             p {
                 color: #fff;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 56.25rem) {
+    .landing-page-wrapper {
+        .game-information-container {
+            h1 {
+                font-size: 3.6rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 40rem) {
+    .landing-page-wrapper {
+        .game-information-container {
+            h1 {
+                font-size: 3.2rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 35rem) {
+    .landing-page-wrapper {
+        .game-information-container {
+            h1 {
+                font-size: 2.8rem;
             }
         }
     }
